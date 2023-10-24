@@ -1,1 +1,29 @@
+pipeline {
+    agent any
 
+
+    stages {
+        stage("build image run image") {
+            steps {
+                sh "docker build -t getting_start:001 -f dockerfile ." 
+                sh "docker run --name getting -d -p 3000:3000 getting_start:001"
+            }
+        }
+
+        stage("stop container") {
+            steps {
+                sh "ddocker ps"
+                sh "docker stop getting"
+                
+            }
+        }
+}
+      
+            post {
+                always {
+                   sh 'docker ps'
+                 
+                }
+            }
+        
+}
