@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage("build image run image HUy") {
             steps {
-                sh "docker build -t getting_start:001 -f dockerfile ." 
+                sh "docker build -t getting_start:001 -f Dockerfile ." 
                 sh "docker run --name getting -d -p 3000:3000 getting_start:001"
             }
         }
