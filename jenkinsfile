@@ -13,7 +13,7 @@ pipeline {
         stage("stop container") {
             steps {
                 sh "docker ps"
-                sh "docker stop getting"
+                //sh "docker stop getting"
                 
             }
         }
