@@ -5,14 +5,14 @@ pipeline {
     stages {
         stage("build image run image HUy") {
             steps {
-                sh "docker build -t getting_start:001 -f dockerfile ." 
-                sh "docker run --name getting -d -p 3000:3000 getting_start:001"
+                sh "sudo docker build -t getting_start:001 -f dockerfile ." 
+                sh "sudo docker run --name getting -d -p 3000:3000 getting_start:001"
             }
         }
 
         stage("stop container") {
             steps {
-                sh "ddocker ps"
+                sh "docker ps"
                 sh "docker stop getting"
                 
             }
